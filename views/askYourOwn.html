@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Your Own!</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+          
+</head>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Artem</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/">Main Page</a></li>
+      <li><a href="/list">All Questions</a></li>
+      <li><a href="/list/practice">Practice</a></li>
+      <li><a href="/ask">Ask Your Own!</a></li>      
+    </ul>
+  </div>
+</nav>
+<body>
+    <h1>Make A Question</h1>
+    <br>
+    <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="Question" id="question" type="text" class="validate">
+              <label for="question">Question</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Answer" id="answer" type="text" class="validate">
+              <label for="answer">Answer</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="Topic" id="topic" type="text" class="validate">
+              <label for="topic">Topic</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Your Name" id="creator" type="text" class="validate">
+              <label for="creator">Creator</label>
+            </div>
+          </div>
+        </form>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit </button>
+    </div>    
+</body>
+</html>
