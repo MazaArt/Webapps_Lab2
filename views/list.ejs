@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- initialize Materialize elements -->
+    <script> M.AutoInit();</script>
+
+
+    <style>
+        form {
+            border: solid 2px lightgrey;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        form:focus-within {
+            border-color: orange;
+        }
+
+        tr:hover {
+            background-color: #F0F0F0;
+        }
+    </style>
+</head>
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Artem</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/list">All Questions</a></li>
+        <li><a href="/list/practice">Practice</a></li>
+        <li><a href="/ask">Ask Your Own!</a></li>      
+      </ul>
+    </div>
+  </nav>
+<body>
+    <h1>All Questions</h1>
+    <table>
+        <thead>
+
+            <tr>
+                <th>Number</th>
+                <th>Question</th>
+                <th>Answer</th>
+                <th>Creator</th>
+                <th></th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <% for (let i = 0; i < inventory.length; i++) { %>
+            <tr>
+                <td> <%= inventory[i].id %> </td>
+                <td> <%= inventory[i].question %> </td>
+                <td> <%= inventory[i].answer %> </td>
+                <td> <%= inventory[i].creator %> </td>
+                <td class="section" id="stuffControls">
+                    <a class="btn-small waves-effect waves-light orange left modal-trigger" href="/list/practice/<%= inventory[i].id %>" >
+                        <i class="material-icons right">edit</i>
+                        Edit
+                    </a>
+                    <a class="btn-small waves-effect waves-light red" href="/list/practice/<%= inventory[i].id %>/delete">
+                        <i class="material-icons right">delete</i>
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- initialize Materialize elements -->
+    <script> M.AutoInit();</script>
+</body>
+</html>

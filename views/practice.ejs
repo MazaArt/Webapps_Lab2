@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Practice</title>
+</head>
+
+
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Artem</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/">Main Page</a></li>
+      <li><a href="/list">All Questions</a></li>
+      <li><a href="/list/practice">Practice</a></li>
+      <li><a href="/ask">Ask Your Own!</a></li>      
+    </ul>
+  </div>
+</nav>
+
+<body>
+    <h1>Practice</h1>
+    <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="question.jpeg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Question<i class="material-icons right">more_vert</i></span>
+          <table>
+            <tr>
+                <th>Item:</th>
+                <td><%= id %></td>
+            </tr>
+            <tr>
+                <th>Question:</th>
+                <td><%= question %></td>
+            </tr>
+            <tr>
+              <th>Creator:</th>
+              <td><%= creator %></td>
+          </tr>
+          </table>
+          <p><a href="/pay">Pay to report an issue.</a></p>
+          <p>Click on the question card to see the correct answer</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Question<i class="material-icons right">close</i></span>
+          <p>Here is the answer to the question. Did you get it right?</p>
+          <table>
+            <tr>
+              <th>Answer:</th>
+              <td><%= answer %></td>
+            </tr>
+          </table>
+        </div>
+    </div>
+
+
+    <div class="modal" id="stuffEdit">
+      <div class="modal-content">
+          <h2>Edit item:</h2>
+          <form method="post" action="/list/practice/<%= id%>"> <!-- default action is the page's URL --> 
+              <div class="input-field col s6">
+                  <label for="countInput">Question ID:</label>
+                  <input type="number" name="quantity" id="quantityInput" value="<%= id%>" required>
+              </div>
+              <div class="row">
+                  <div class="input-field col s6">
+                      <label for="creatorInput">Creator</label>
+                      <input type="text" name="creator" id="creatorInput" class="validate" value="<%= creator%>" data-length="32" required>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="input-field col s12">
+                      <label for="questionInput">Question</label>
+                      <input type="text" name="question" id="descriptionInput" value="<%= question%>" data-length="100">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="input-field col s12">
+                      <label for="answerInput">Answer</label>
+                      <input type="text" name="answer" id="answerInput" value="<%= answer%>" data-length="100">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button class="btn waves-effect waves-light " type="submit">
+                      <i class="material-icons right">send</i>
+                      Submit
+                  </button>
+                  <button class="modal-close waves-effect waves-green btn-flat">Never Mind</button>
+              </div>
+          </form>
+      </div>
+
+  </div>
+                
+</body>
+</html>
