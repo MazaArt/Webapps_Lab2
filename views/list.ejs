@@ -10,6 +10,7 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/scripts/materializeAutoinit.js"></script>
 
     <!-- Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -34,17 +35,35 @@
         }
     </style>
 </head>
-<nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Artem</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/">Main Page</a></li>
-        <li><a href="/list">All Questions</a></li>
-        <li><a href="/list/practice">Practice</a></li>
-        <li><a href="/ask">Ask Your Own!</a></li>      
-      </ul>
-    </div>
-  </nav>
+<header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Artem</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/">Main Page</a></li>
+          <li><a href="/list">All Questions</a></li>
+          <li><a href="/list/practice">Practice</a></li>
+          <l i><a href="/ask">Ask Your Own!</a></li>    
+          <% if (isLoggedIn) { %>
+              <li><a href="/profile"><i class="material-icons left">person</i> Hello, <%=user.name%></a> </li>
+              <li><a href="/logout" class="btn red">Logout</a></li>                        
+          <% } else { %>
+              <li><a href="/login" class="btn blue">Login</a></li>
+          <% } %> 
+        </ul>
+      </div>
+    </nav>
+    <ul id="mobile-nav" class="sidenav">
+      <li><a href="/"><i class="material-icons left">mainPage</i>Main Page</a></li>
+      <li><a href="/list"><i class="material-icons left">list</i>Questions</a></li>
+      <% if (isLoggedIn) { %>
+        <li><a href="/profile"><i class="material-icons left">person</i> Hello, <%=user.name%></a> </li>
+        <li><a href="/logout" class="btn red">Logout</a></li>                        
+    <% } else { %>
+        <li><a href="/login" class="btn blue">Login</a></li>
+    <% } %>
+  </ul>
+  </header>
 <body>
     <h1>All Questions</h1>
     <table>
